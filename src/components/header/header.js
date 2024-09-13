@@ -5,15 +5,18 @@ import SupportIcon from "../icons/support";
 import NotificationIcon from "../icons/notification";
 import LineIcon from "../icons/line";
 
-const Header = () => {
+const Header = ({ toggleSidebar }) => {
   return (
     <header className="flex justify-between items-center p-4 bg-white shadow-sm h-[83px]">
-      <div className="flex ">
-        <div className="px-4 max-[678px]:hidden">
+      <div className="flex">
+        <div
+          className="lg:hidden block top-4 left-0 text-white pt-2 rounded "
+          onClick={toggleSidebar}
+        >
           <FlickLogoIcon />
         </div>
       </div>
-      <div className="ml-auto min-[678px]:hidden">
+      <div className="ml-auto min-[678px]:hidden ">
         <NotificationIcon />
       </div>
       <div className="flex items-center gap-[12px] mr-[24px] max-[678px]:hidden">

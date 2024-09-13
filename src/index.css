@@ -3,3 +3,20 @@
 @tailwind utilities;
 
 
+html {
+    height: -webkit-fill-available;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Circular Std', sans-serif;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: rgb(87, 106, 129, 0.6);
+        border-radius: 5px;
+    }
+}

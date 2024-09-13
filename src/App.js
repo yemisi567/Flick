@@ -26,15 +26,17 @@ const App = () => {
 
   return (
     <Router>
-      <div className="min-h-screen flex flex-col">
-        <Header isSidebarOpen={isSidebarOpen} />
-
-        <div className="flex flex-grow">
+      <div className="flex flex-col">
+        <div className="flex">
           <Sidebar
             isSidebarOpen={isSidebarOpen}
             toggleSidebar={toggleSidebar}
           />
-          <div className="flex-grow">
+          <div className="flex-1 ml-0 lg:ml-[280px]">
+            <Header
+              isSidebarOpen={isSidebarOpen}
+              toggleSidebar={toggleSidebar}
+            />
             <Routes>
               <Route path="/" element={<Navigate to="/overview" replace />} />
               <Route path="/get-started" element={<GetStarted />} />

@@ -8,14 +8,14 @@ import DataIcon from "../icons/data";
 import SettingsIcon from "../icons/settings";
 import OverViewIcon from "../icons/bar-chart-sqaure";
 import { NavLink } from "react-router-dom";
-import FlickLogoIcon from "../icons/flick-logo";
 import CopyIcon from "../icons/copy";
 import ChevronUpIcon from "../icons/chevron-up";
 import ChevronRightIcon from "../icons/chevron-right";
+import Logo from "../icons/Logo.svg";
 
 const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
   const linkClass = ({ isActive }) => `
-    block px-4 py-[10.5px] rounded transition-colors duration-200 relative
+    block px-7 py-[10.5px] rounded transition-colors duration-200 relative
     ${isActive ? "text-[#101828]" : "text-[#98A2B3] hover:text-[#101828]"}
     before:content-[''] before:absolute before:inset-0 before:bg-[#F6F7F9] 
     before:opacity-0 hover:before:opacity-100 ${
@@ -45,20 +45,18 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
   return (
     <div>
       {/* Mobile Toggle Button */}
-      <div
-        className="min-[678px]:hidden absolute top-4 left-0 text-white pt-2 rounded "
-        onClick={toggleSidebar}
-      >
-        <FlickLogoIcon />
-      </div>
+
       <aside
-        className={`fixed lg:static top-0 left-0 h-dvh lg:h-screen bg-white p-4 transition-transform transform lg:translate-x-0 ${
+        className={`absolute lg:fixed top-0 left-0 h-dvh bg-white transition-transform transform lg:translate-x-0 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } lg:w-[280px] z-50 flex flex-col justify-between`}
+        } lg:w-[280px] z-50 flex flex-col justify-between pb-8` }
       >
+        <div className="mb-[62px] pt-6 pl-6 ">
+          <img src={Logo} alt="" />
+        </div>
         <ul className="space-y-1 flex-grow">
           <li>
-            <span className="block py-2 px-4 text-[#7F91B4] text-xs font-[450] mb-[12.5px]">
+            <span className="block py-2 px-7 text-[#7F91B4] text-xs font-[450] mb-[12.5px]">
               MAIN MENU
             </span>
           </li>
@@ -80,7 +78,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
             </li>
           ))}
         </ul>
-        <div className="mt-auto">
+        <div className="mt-auto px-4">
           <div className="border-[#EAECF0] border mb-[24px]" />
           <div className="flex gap-[10px] items-center">
             <button className="w-[40px] h-[40px] rounded-full border-[#EAF8F8] outline-none cursor-pointer bg-[#EAF8F8]">
