@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 
-function App() {
+import Balance from "./pages/balance/balance";
+import DirectDebit from "./pages/direct-debit/direct-debit";
+import Data from "./pages/data/data";
+import Payments from "./pages/payments/payments";
+import Settings from "./pages/settings/settings";
+import Sidebar from "./components/sidebar/sidebar";
+import GetStarted from "./pages/get-started/get-started";
+import Overview from "./pages/overview/overview";
+import OTCDashboard from "./pages/otc-dashboard/otc-dashboard";
+import Header from "./components/header/header";
+
+const App = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        
+        <div className="flex flex-grow">
+          <Sidebar
+            isSidebarOpen={isSidebarOpen}
+            toggleSidebar={toggleSidebar}
+          />
+          <div className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Navigate to="/overview" replace />} />
+              <Route path="/get-started" element={<GetStarted />} />
+              <Route path="/overview" element={<Overview />} />
+              <Route path="/otc-dashboard" element={<OTCDashboard />} />
+              <Route path="/balance" element={<Balance />} />
+              <Route path="/direct-debit" element={<DirectDebit />} />
+              <Route path="/data" element={<Data />} />
+              <Route path="/payments" element={<Payments />} />
+              <Route path="/settings" element={<Settings />} />
+            </Routes>
+          </div>
+        </div>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
