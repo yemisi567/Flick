@@ -227,7 +227,7 @@ export default function Overview() {
               </div>
             </div>
           ))}
-          <div className="flex items-center justify-center mt-[28px] pb-[30px]">
+          <div className="flex items-center justify-center mt-[28px] pb-[30px] gap-x-[6px]">
             <p className="text-[#2EBDB6] text-sm font-[450]">View more</p>
             <ViewMoreIcon />
           </div>
