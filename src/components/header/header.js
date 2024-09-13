@@ -1,17 +1,23 @@
+import { Switch } from "antd";
 import DocumentationIcon from "../icons/documentation";
 import FlickLogoIcon from "../icons/flick-logo";
 import SupportIcon from "../icons/support";
+import NotificationIcon from "../icons/notification";
+import LineIcon from "../icons/line";
 
-const Header = ({ isSidebarOpen, toggleSidebar }) => {
+const Header = () => {
   return (
     <header className="flex justify-between items-center p-4 bg-white shadow-sm h-[83px]">
-      <div className="flex items-center">
-        <div className="px-4">
+      <div className="flex ">
+        <div className="px-4 max-[678px]:hidden">
           <FlickLogoIcon />
         </div>
       </div>
-      <div className="flex items-center space-x-4">
-        <div className="flex items-center gap-[4px]">
+      <div className="ml-auto min-[678px]:hidden">
+        <NotificationIcon />
+      </div>
+      <div className="flex items-center gap-[12px] mr-[24px] max-[678px]:hidden">
+        <div className="flex items-center gap-[4px] border border-[#D0D5DD] rounded-[8px] h-[40px] px-[16px] py-[10px]">
           <SupportIcon />
           Support
         </div>
@@ -19,10 +25,23 @@ const Header = ({ isSidebarOpen, toggleSidebar }) => {
           <DocumentationIcon />
           API Documentation
         </div>
-        <button className="bg-gray-200 text-gray-700 px-3 py-1 rounded-md">
+        <div>
+          <LineIcon />
+        </div>
+        <div>
+          <Switch
+            defaultChecked={false}
+            className="bg-[#F2F4F7]"
+            style={{ width: "36px" }}
+          />
           Test Mode
-        </button>
-        <div className="w-8 h-8 bg-gray-300 rounded-full"></div>{" "}
+        </div>
+        <div>
+          <LineIcon />
+        </div>
+        <div>
+          <NotificationIcon />
+        </div>
       </div>
     </header>
   );

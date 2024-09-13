@@ -45,12 +45,12 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
   return (
     <div>
       {/* Mobile Toggle Button */}
-      <button
-        className="lg:hidden absolute top-4 left-4 bg-gray-900 text-white p-2 rounded "
+      <div
+        className="min-[678px]:hidden absolute top-4 left-0 text-white pt-2 rounded "
         onClick={toggleSidebar}
       >
-        {isSidebarOpen && <FlickLogoIcon />}
-      </button>
+        <FlickLogoIcon />
+      </div>
       <aside
         className={`fixed lg:static top-0 left-0 h-dvh lg:h-screen bg-white p-4 transition-transform transform lg:translate-x-0 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
