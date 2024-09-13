@@ -32,22 +32,24 @@ const App = () => {
             isSidebarOpen={isSidebarOpen}
             toggleSidebar={toggleSidebar}
           />
-          <div className="flex-1 ml-0 lg:ml-[280px]">
+          <div className="flex-1 ml-0 lg:ml-[280px] min-h-screen ">
             <Header
               isSidebarOpen={isSidebarOpen}
               toggleSidebar={toggleSidebar}
             />
-            <Routes>
-              <Route path="/" element={<Navigate to="/overview" replace />} />
-              <Route path="/get-started" element={<GetStarted />} />
-              <Route path="/overview" element={<Overview />} />
-              <Route path="/otc-dashboard" element={<OTCDashboard />} />
-              <Route path="/balance" element={<Balance />} />
-              <Route path="/direct-debit" element={<DirectDebit />} />
-              <Route path="/data" element={<Data />} />
-              <Route path="/payments" element={<Payments />} />
-              <Route path="/settings" element={<Settings />} />
-            </Routes>
+            <div className="h-full bg-[#F6F7F9]">
+              <Routes>
+                <Route path="/" element={<Navigate to="/overview" replace />} />
+                <Route path="/get-started" element={<GetStarted />} />
+                <Route path="/overview" element={<Overview />} />
+                <Route path="/otc-dashboard" element={<OTCDashboard />} />
+                <Route path="/balance" element={<Balance />} />
+                <Route path="/direct-debit" element={<DirectDebit />} />
+                <Route path="/data" element={<Data />} />
+                <Route path="/payments" element={<Payments />} />
+                <Route path="/settings" element={<Settings />} />
+              </Routes>
+            </div>
           </div>
         </div>
       </div>
