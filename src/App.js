@@ -27,8 +27,8 @@ const App = () => {
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
-        <Header />
-        
+        <Header isSidebarOpen={isSidebarOpen} />
+
         <div className="flex flex-grow">
           <Sidebar
             isSidebarOpen={isSidebarOpen}
